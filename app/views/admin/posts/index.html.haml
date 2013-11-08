@@ -1,0 +1,15 @@
+.btn-toolbar
+  .btn-group.pull-right
+    = button_new_item({link_new: new_admin_post_path, text_new: 'Новый пост'})
+%h3 Все посты
+= will_paginate(@posts, next_label: '>', previous_label: '<', class: 'pagination pagination-mini')
+%table.table.table-bordered.table-striped
+  %tr
+    %th #
+    %th 
+    %th Превью
+    %th Название поста
+    %th Автор
+    %th
+  = render @posts
+= will_paginate(@posts, next_label: '>', previous_label: '<', class: 'pagination pagination-mini')

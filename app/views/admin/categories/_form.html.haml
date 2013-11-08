@@ -1,0 +1,19 @@
+= form_for [:admin, @category], html: {class: 'form-horizontal'} do |f|
+  = render 'errors'
+  .btn-toolbar
+    .btn-group
+      = f.submit 'Сохранить', :class => 'btn btn-primary'
+      = f.button 'Отмена', :class => 'btn', :type => 'reset'
+    .btn-group.pull-right
+      = button_item({link_new: new_admin_category_path, text_new: 'Новая категория', link_all: admin_categories_path, text_all: 'Все категории'})
+  .tabbable
+    %ul.nav.nav-tabs.clickTabs{data: {tabs: 'tabs'}}
+      = render 'admin/categories/tabs/menu'
+  = f.fields_for :content do |c|
+    .tab-content
+      .tab-pane.active#main_info
+        = render 'admin/categories/tabs/main_info', f: f, c: c
+      .tab-pane#seo
+        = render 'admin/categories/tabs/seo'
+      .tab-pane#bg
+        = render 'admin/categories/tabs/bg', c: c

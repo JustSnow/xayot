@@ -1,0 +1,26 @@
+$('.select_menu').html('');
+
+if("<%= @link.count %>" > 0) var select = $('<select></select>');
+else var select = 'Создайте хотя бы 1 категорию или пост';
+
+switch ("<%= @link.first.class.name %>") {
+	case 'Category':
+		select.attr({
+			'name' : "menu[category_id]",
+			'id' : 'menu_category_id'
+		});
+		break
+	case 'Post':
+		select.attr({
+			'name' : "menu[post_id]",
+			'id' : 'menu_post_id'
+		});
+		break
+}
+
+select.append('<%= escape_javascript options_for_select_menu(@link) %>');
+
+$('.select_menu').html(select);
+
+if ($('#menu_post_id').length > 0) $('#menu_post_id').select2({'width': 'element'});
+if ($('#menu_category_id').length > 0) $('#menu_category_id').select2({'width': 'element'});

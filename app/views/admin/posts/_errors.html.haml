@@ -1,0 +1,8 @@
+- if @post.errors.any?
+  #errorExplanation.alert.alert-error
+    %h4
+      = pluralize(@post.errors.count, 'error') 
+      prohibited this post from being saved:
+    %ul
+      - @post.errors.full_messages.each do |e|
+        %li= e

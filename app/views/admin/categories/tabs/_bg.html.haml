@@ -1,0 +1,6 @@
+.control-group
+  = c.label :image, 'BG'
+  .controls
+    = c.file_field :image
+.control-group
+  .controls= image_tag @category.content.image_url(:thumb), class: 'img-polaroid' if @category.content.image?

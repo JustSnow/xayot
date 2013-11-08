@@ -1,0 +1,8 @@
+.btn-toolbar
+  .btn-group.pull-right
+    = button_new_item({link_new: new_admin_category_path, text_new: 'Новая категория'})
+%h3 Все категории
+= will_paginate(@categories, next_label: '>', previous_label: '<', class: 'pagination pagination-mini')
+%ol.sortable_tree{data: {rebuild_url: rebuild_admin_categories_url}}
+  = sortable_tree @categories, {namespace: :admin}
+= will_paginate(@categories, next_label: '>', previous_label: '<', class: 'pagination pagination-mini')

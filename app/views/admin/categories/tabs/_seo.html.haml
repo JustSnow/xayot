@@ -1,0 +1,16 @@
+.control-group
+  = label_tag 'seo[sitetitle]', 'Заголовок сайта', {class: 'control-label'}
+  .controls
+    = text_field_tag 'seo[sitetitle]', (@category.content.seo.nil?)? nil : JSON.parse(@category.content.seo)['sitetitle'], {placeholder: 'Введите заголовок сайта', class: 'span6'}
+.control-group
+  = label_tag 'seo[title]', 'Заголовок страницы', {class: 'control-label'}
+  .controls
+    = text_field_tag 'seo[title]', (@category.content.seo.nil?)? nil : JSON.parse(@category.content.seo)['title'], {placeholder: 'Введите заголовок страницы', class: 'span6'}
+.control-group
+  = label_tag 'seo[description]', 'Описание сайта', {class: 'control-label'}
+  .controls
+    = text_field_tag 'seo[description]', (@category.content.seo.nil?)? nil : JSON.parse(@category.content.seo)['description'], {placeholder: 'Введите описание сайта', class: 'span6'}
+.control-group
+  = label_tag 'seo[keywords]', 'Ключевые слова', {class: 'control-label'}
+  .controls
+    = text_field_tag 'seo[keywords]', (@category.content.seo.nil?)? nil : JSON.parse(@category.content.seo)['keywords'], {placeholder: 'Введите ключевые слова', class: 'span6'}

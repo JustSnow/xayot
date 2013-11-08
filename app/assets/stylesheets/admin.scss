@@ -1,0 +1,13 @@
+ /*
+ *= require_self
+ *= require_tree ./admin
+ *= require sortable_tree
+ *= require nested_options
+ *= require select2
+ *= require jquery.fileupload-ui
+ */
+
+@import "bootstrap.scss";
+@import 'bootstrap-responsive';
+
+#main_admin { padding-top: 50px; }

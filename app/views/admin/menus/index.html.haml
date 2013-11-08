@@ -1,0 +1,8 @@
+.btn-toolbar
+  .btn-group.pull-right
+    = button_new_item({link_new: new_admin_menu_path, text_new: 'Новый пункт меню'})
+%h3 Все пункты
+= will_paginate(@menus, next_label: '>', previous_label: '<', class: 'pagination pagination-mini')
+%ol.sortable_tree{data: {rebuild_url: rebuild_admin_menus_url}}
+  = sortable_tree @menus, {namespace: :admin}
+= will_paginate(@menus, next_label: '>', previous_label: '<', class: 'pagination pagination-mini')

@@ -1,0 +1,18 @@
+.control-group
+	= f.label :name, 'Название', {class: 'control-label'}
+	.controls= f.text_field :name, placeholder: 'Название пункта меню'
+.control-group
+	= f.label 'link', 'Ссылка меню'
+	.controls
+		%ul.nav.nav-tabs.select_link_menu
+			%li= link_to 'Категории', rebuild_select_admin_menus_path(link_menu: 'category'), remote: true
+			%li.active= link_to 'Посты', rebuild_select_admin_menus_path(link_menu: 'post'), remote: true
+
+		.select_menu
+			- if @menu.category.present?
+				= f.select :category_id, options_for_select(Category.all.map{|c| [c.content.name, c.id]}, @menu.category.id)
+			- else
+				= f.select :post_id, options_for_select(Post.all.map{|p| [p.content.name, p.id]}, @menu.post.try(:id)) if Post.count > 0
+.control-group
+	= f.label :published, 'Публикация', {class: 'control-label'}
+	.controls= f.check_box :published

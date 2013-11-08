@@ -1,0 +1,12 @@
+.control-group
+  = c.label :name, 'Название', {class: 'control-label'}
+  .controls= c.text_field :name, placeholder: 'Название категории'
+.control-group
+  = c.label :alias, 'Алиас', {class: 'control-label'}
+  .controls= c.text_field :alias, placeholder: 'Алиас категории'
+.control-group
+  = f.label :parent_id, 'Радительская категория', {class: 'control-label'}
+  .controls= f.select :parent_id, options_for_select(Category.all.map{|c| [c.content.name, c.id]}, @category.parent_id), {include_blank: "root"}
+.control-group
+  = c.label :published, 'Публикация', {class: 'control-label'}
+  .controls= c.check_box :published

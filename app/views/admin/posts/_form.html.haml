@@ -1,0 +1,22 @@
+= form_for [:admin, @post], html: {class: 'form-horizontal', multipart: true} do |f|
+  = render 'errors'
+  .btn-toolbar
+    .btn-group
+      = f.submit 'Сохранить', :class => 'btn btn-primary'
+      = f.button 'Отмена', :class => 'btn', :type => 'reset'
+    .btn-group.pull-right
+      = gallery_btn({link_gallery: admin_post_gallery_posts_path(@post), text_gallery: 'Галлерея'}) unless @post.id.nil?
+      = button_item({link_new: new_admin_post_path, text_new: 'Новый пост', link_all: admin_posts_path, text_all: 'Все посты'})
+  .tabbable
+    %ul.nav.nav-tabs.clickTabs{data: {tabs: 'tabs'}}
+      = render 'admin/posts/tabs/menu'
+  = f.fields_for :content do |c|
+    .tab-content
+      .tab-pane.active#main_info
+        = render 'admin/posts/tabs/main_info', f: f, c: c
+      .tab-pane#desc
+        = render 'admin/posts/tabs/description', f: f
+      .tab-pane#prev
+        = render 'admin/posts/tabs/preview', c: c
+      .tab-pane#seo
+        = render 'admin/posts/tabs/seo'

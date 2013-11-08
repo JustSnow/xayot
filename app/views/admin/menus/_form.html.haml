@@ -1,0 +1,14 @@
+= form_for [:admin, @menu], html: {class: 'form-horizontal'} do |f|
+  = render 'errors'
+  .btn-toolbar
+    .btn-group
+      = f.submit 'Сохранить', :class => 'btn btn-primary'
+      = f.button 'Отмена', :class => 'btn', :type => 'reset'
+    .btn-group.pull-right
+      = button_item({link_new: new_admin_menu_path, text_new: 'Новый пункт меню', link_all: admin_menus_path, text_all: 'Все пункты меню'})
+  .tabbable
+    %ul.nav.nav-tabs.clickTabs{data: {tabs: 'tabs'}}
+      = render 'admin/menus/tabs/menu'
+    .tab-content
+      .tab-pane.active#main_info
+        = render 'admin/menus/tabs/main_info', f: f

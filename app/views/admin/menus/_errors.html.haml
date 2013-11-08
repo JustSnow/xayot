@@ -1,0 +1,8 @@
+- if @menu.errors.any?
+  #errorExplanation.alert.alert-error
+    %h4
+      = pluralize(@menu.errors.count, 'error') 
+      prohibited this menu from being saved:
+    %ul
+      - @menu.errors.full_messages.each do |e|
+        %li= e

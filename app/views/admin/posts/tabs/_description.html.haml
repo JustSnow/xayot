@@ -1,0 +1,8 @@
+.control-group
+  = f.label :intro, 'Вступительный текст', {class: 'control-label'}
+  .controls
+    = f.cktext_area :intro
+.control-group
+  = f.label :full, 'Полный текст', {class: 'control-label'}
+  .controls
+    = f.cktext_area :full

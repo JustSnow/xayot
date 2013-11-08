@@ -1,0 +1,11 @@
+%tr
+  %td= post.id
+  %td= help_published(post)
+  %td= image_tag post.content.image_url(:thumb), class: 'img-polaroid' if post.content.image?
+  %td
+    = link_to post.content.name, [:edit, :admin, post]
+    %br
+    Категория - 
+    = link_to post.category.content.name, [:edit, :admin, post.category]
+  %td= post.content.user.email
+  %td= delete_link({delete_link: admin_post_path(post), message: "Уверены что хотите удалить пост '#{post.content.name}'"})
