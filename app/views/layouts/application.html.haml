@@ -11,20 +11,24 @@
       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
     = stylesheet_link_tag "application", media: "all"
 
-  %body
+  %body#main_application
     .container
       .row
-        .span9
+        .span5
+          = link_to root_path do
+            = image_tag 'logo.png'
+            %br
+            %span Хаёт (в переводе с узб. – «Жизнь»)
+        .span6
+          %ul.nav.nav-pills
+            %li.active= link_to 'О Хаетхон', '#'
+            %li= link_to 'Мероприятия', '#'
+            %li= link_to 'Контакты', '#'
+
+      .row
+        .span12
           = bootstrap_flash
           = yield
-        .span3
-          .well.sidebar-nav
-            %h3 Sidebar
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
     
       %footer
         %p &copy; Company 2013

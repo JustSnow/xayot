@@ -4,6 +4,8 @@ Xayot::Application.routes.draw do
 
   root to: 'welcome#index'
 
+  resources :posts, only: [:show]
+
   namespace :admin do
     root to: 'admin#index'
 

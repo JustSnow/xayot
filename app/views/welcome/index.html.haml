@@ -1,1 +1,10 @@
-welcome
+= debug @main_category.children.count
+- if @main_category.present?
+	%ul.nav.span4.main_list_category
+		- @main_category.children.each do |category|
+			- if category.posts.present?
+				%li.well
+					%h3= category.content.name
+					%ul
+						- category.posts.published.limit(5).each do |post|
+							%li= link_to post.content.name, post

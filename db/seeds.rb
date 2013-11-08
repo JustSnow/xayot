@@ -7,15 +7,30 @@ u = User.create(
 
 categories = {
 	'main' => "Главная",
+	'news' => "Новости",
+	'about' => "О Хаётхон",
+	'main-sidebar' => 'Главная Сайдбар'
+}
+
+main_categories = {
 	'articles' => "Статьи Хаётхон",
 	'people' => "Люди о Хаётхон",
 	'message' => "Послания",
-	'news' => "Новости",
-	'about' => "О Хаётхон"
 }
 
 categories.each do |index, value|
 	c = Category.nested_set.new
+	c.save!
+	c = c.build_content
+	c.name = "#{value}"
+	c.alias = "#{index}"
+	c.user_id = u.id
+	c.save!
+end
+
+main_categories.each do |index, value|
+	c = Category.nested_set.new
+	c.parent_id = 4
 	c.save!
 	c = c.build_content
 	c.name = "#{value}"

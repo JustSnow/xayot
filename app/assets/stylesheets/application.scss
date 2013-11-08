@@ -13,3 +13,18 @@
 */
 
 @import 'bootstrap-responsive';
+
+#main_application { 
+	padding-top: 20px; 
+	.main_list_category {
+		margin-left: 0;
+		width: 100%;
+		> li { 
+			display: inline-block; 
+			margin-left: 10px;
+			font-size: 16px;
+			&:first-child { margin-left: 0; }
+			h3 { font-size: 18px; }
+		}
+	}
+}
