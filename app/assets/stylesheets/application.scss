@@ -14,6 +14,11 @@
 
 @import 'bootstrap-responsive';
 
+html, body {
+	height: 100%;
+}
+
+
 #main_application { 
 	padding-top: 20px; 
 	img {
@@ -22,5 +27,14 @@
 			border: 1px solid #ccc;
 			background: #fff;
 		}
+	}
+	.container { 
+		min-height: 100%; 
+		.spacer { height: 50px; }
+	}
+	footer { 
+		padding: 0 15px;
+		margin: 0 auto;
+		margin-top: -50px; 
 	}
 }

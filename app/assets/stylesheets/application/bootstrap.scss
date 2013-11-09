@@ -1183,7 +1183,7 @@ pre code {
 }
 
 @media (min-width: 768px) {
-  .container {
+  .container, footer {
     width: 750px;
   }
   .col-sm-1,
@@ -1355,7 +1355,7 @@ pre code {
 }
 
 @media (min-width: 992px) {
-  .container {
+  .container, footer {
     width: 970px;
   }
   .col-md-1,
@@ -1527,7 +1527,7 @@ pre code {
 }
 
 @media (min-width: 1200px) {
-  .container {
+  .container, footer {
     width: 1170px;
   }
   .col-lg-1,
