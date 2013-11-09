@@ -1,0 +1,29 @@
+.main_list_category {
+	margin: 20px 0;
+	width: 100%;
+	> li { 
+		display: inline-block; 
+		font-size: 16px;
+		&:first-child { margin-left: 0; }
+		.well {
+			min-height: 180px;
+			h3 { font-size: 18px; margin-top: 0; }
+			ul { padding: 0 20px; }
+		}
+	}
+}
+.main_post {
+	margin-left: 0; 
+}
+.news {
+	h3 { margin: 0; }
+	ul {
+		padding: 0;
+		margin: 0;
+		li {
+			list-style: none;
+			margin: 10px 0;
+			a img { margin: 0 10px 10px 0; }
+		}
+	}
+}
