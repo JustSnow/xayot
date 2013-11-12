@@ -12,6 +12,7 @@
  *= require_tree ./application
 */
 
+@import 'bootstrap';
 @import 'bootstrap-responsive';
 
 html, body {
@@ -31,6 +32,7 @@ html, body {
 	.container { 
 		min-height: 100%; 
 		.spacer { height: 50px; }
+		article { margin: 10px 0; }
 	}
 	footer { 
 		padding: 0 15px;

@@ -8,7 +8,7 @@
 						%ul
 							- category.posts.published.limit(5).each do |post|
 								%li= link_to post.content.name, post
-					= link_to 'Все встатьи', category, class: 'btn btn-info'
+					= link_to 'Все встатьи', category, class: 'btn btn-link'
 
 .row
 	.span6.main_post

@@ -1,1 +1,2 @@
-= @category.content.name
+= render_breadcrumbs
+= render partial: 'categories/category_posts', collection: @category.posts, as: :post if @category.posts.present?
