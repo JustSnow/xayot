@@ -24,6 +24,7 @@
             %li.active= link_to 'О Хаетхон', '#'
             %li= link_to 'Мероприятия', '#'
             %li= link_to 'Контакты', '#'
+            %li= link_to 'Админка', admin_root_path, {target: '_blank'} if (user_signed_in? && current_user.role == 'admin')
 
       .row
         .span12

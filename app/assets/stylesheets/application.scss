@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require_tree ./application
+ *= require_tree ../../../vendor/assets/stylesheets
 */
 
 @import 'bootstrap';
@@ -22,17 +23,12 @@ html, body {
 
 #main_application { 
 	padding-top: 20px; 
-	img {
-		&.img-polaroid {
-			padding: 4px;
-			border: 1px solid #ccc;
-			background: #fff;
-		}
-	}
 	.container { 
 		min-height: 100%; 
 		.spacer { height: 50px; }
 		article { margin: 10px 0; }
+		p.pull-left img { margin: 0 10px 10px 0; }
+		p.pull-right img { margin: 0 0 10px 10px; }
 	}
 	footer { 
 		padding: 0 15px;

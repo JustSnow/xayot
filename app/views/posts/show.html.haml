@@ -1,0 +1,11 @@
+= render_breadcrumbs
+.well
+	%p.pull-right= raw "#{glyph(:calendar)} #{Russian::strftime @post.content.created_at, '%e %B в %l:%M %p'}"
+	%h3= @post.content.name
+	%section
+		%p.pull-left= image_tag @post.content.image_url(:thumb), class: 'img-polaroid' if @post.content.image?
+		= raw @post.full
+		- if @post.gallery_posts.present?
+			%ul.nav.nav-tabs.gallery_post
+				- @post.gallery_posts.each do |gallery|
+					%li= link_to image_tag(gallery.image_url(:thumb), class: 'img-polaroid'), gallery.image_url

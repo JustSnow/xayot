@@ -46,7 +46,6 @@ GEM
     bcrypt-ruby (3.1.2)
     bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
-    breadcrumbs_on_rails (2.3.0)
     builder (3.0.4)
     capistrano (2.15.5)
       highline
@@ -210,7 +209,6 @@ PLATFORMS
 DEPENDENCIES
   awesome_nested_set
   bootstrap-sass (= 2.3.2.2)
-  breadcrumbs_on_rails
   capistrano (= 2.15.5)
   carrierwave
   ckeditor

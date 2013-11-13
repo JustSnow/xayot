@@ -1,2 +1,4 @@
 = render_breadcrumbs
-= render partial: 'categories/category_posts', collection: @category.posts, as: :post if @category.posts.present?
+= will_paginate(@posts, next_label: '>', previous_label: '<', class: 'pagination pagination-mini')
+= render partial: 'categories/category_posts', collection: @posts, as: :post if @posts.present?
+= will_paginate(@posts, next_label: '>', previous_label: '<', class: 'pagination pagination-mini')

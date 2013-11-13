@@ -12,3 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require_tree ../../../vendor/assets/javascripts
+
+$(document).ready(function() {
+	if ($('.gallery_post').length > 0) $('.gallery_post').photobox('li > a');
+});

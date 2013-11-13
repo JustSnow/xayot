@@ -8,6 +8,6 @@ class GalleryUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process :resize_to_limit => [120, 170]
+    process :resize_to_fill => [120, 170]
   end
 end
