@@ -1,11 +1,13 @@
 class Admin::CategoriesController < Admin::AdminController
-  include TheSortableTreeController::Rebuild
+  # include TheSortableTreeController::Rebuild
+  include TheSortableTreeController::ReversedRebuild
   before_filter :tree, except: [:index, :manage, :create]
   before_filter :find_cat, only: [:update, :edit, :destroy, :publish, :unpublish]
   before_filter :seo_category_params, only: [:update, :create]
 
   def index
-    @categories = Category.nested_set.includes(:content).paginate(page: params[:page], per_page: 15)
+    # @categories = Category.nested_set.includes(:content).paginate(page: params[:page], per_page: 15)
+    @categories = Category.reversed_nested_set.includes(:content).paginate(page: params[:page], per_page: 15)
   end
 
   def manage

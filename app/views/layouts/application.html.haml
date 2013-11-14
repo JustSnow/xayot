@@ -20,11 +20,10 @@
             %br
             %span Хаёт (в переводе с узб. – «Жизнь»)
         .span6
-          %ul.nav.nav-pills.pull-right
-            %li.active= link_to 'О Хаетхон', '#'
-            %li= link_to 'Мероприятия', '#'
-            %li= link_to 'Контакты', '#'
-            %li= link_to 'Админка', admin_root_path, {target: '_blank'} if (user_signed_in? && current_user.role == 'admin')
+          - if @menu.present?
+            %ul.nav.nav-pills.pull-right
+              = render partial: 'shared/main_menu', collection: @menu, as: :menu
+              %li= link_to 'Админка', admin_root_path, {target: '_blank'} if (user_signed_in? && current_user.role == 'admin')
 
       .row
         .span12

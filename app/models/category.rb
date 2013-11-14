@@ -1,5 +1,4 @@
 class Category < ActiveRecord::Base
-  default_scope {order('id desc')}
   scope :published, -> { joins(:content).merge(Content.published) }
   
   include TheSortableTree::Scopes

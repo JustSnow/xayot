@@ -1,10 +1,12 @@
 class Admin::MenusController < Admin::AdminController
-	include TheSortableTreeController::Rebuild
+	# include TheSortableTreeController::Rebuild
+	include TheSortableTreeController::ReversedRebuild
   before_filter :tree, except: [:index, :manage, :create]
 	before_filter :find_menu, except: [:index, :new, :create, :rebuild_select]
 
 	def index
-		@menus = Menu.nested_set.paginate(page: params[:page], per_page: 15)
+		# @menus = Menu.nested_set.paginate(page: params[:page], per_page: 15)
+		@menus = Menu.reversed_nested_set.paginate(page: params[:page], per_page: 15)
 	end
 
 	def manage

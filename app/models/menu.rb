@@ -1,5 +1,4 @@
 class Menu < ActiveRecord::Base
-	default_scope { order('id desc') }
 	scope :published, -> { where('published = ?', true) }
 
 	include TheSortableTree::Scopes
