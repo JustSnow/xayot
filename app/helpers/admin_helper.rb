@@ -118,4 +118,43 @@ module AdminHelper
     @node = node
     raw options_for_select(@node.map {|n| [(n.respond_to?(:content))? n.content.name : n.name, n.id]})
   end
+
+  # bootstrap
+  ALERT_TYPES = [:error, :info, :success, :warning]
+
+  def bootstrap_flash
+    flash_messages = []
+    flash.each do |type, message|
+      # Skip empty messages, e.g. for devise messages set to nothing in a locale file.
+      next if message.blank?
+      
+      type = :success if type == :notice
+      type = :error   if type == :alert
+      next unless ALERT_TYPES.include?(type)
+
+      Array(message).each do |msg|
+        text = content_tag(:div,
+                           content_tag(:button, raw("&times;"), class: "close", "data-dismiss" => "alert") +
+                           msg.html_safe, :class => "alert fade in alert-#{type}")
+        flash_messages << text if msg
+      end
+    end
+    flash_messages.join("\n").html_safe
+  end
+
+  # ==== Examples
+  # glyph(:share_alt)
+  # # => <i class="icon-share-alt"></i>
+  # glyph(:lock, :white)
+  # # => <i class="icon-lock icon-white"></i>
+  # glyph(:thumbs_up, :pull_left)
+  # # => <i class="icon-thumbs-up pull-left"></i>
+
+  def glyph(*names)
+    names.map! { |name| name.to_s.gsub('_','-') }
+    names.map! do |name|
+      name =~ /pull-(?:left|right)/ ? name : "icon-#{name}"
+    end
+    content_tag :i, nil, :class => names
+  end
 end

@@ -3,11 +3,13 @@
 		- @main_category.children.each do |category|
 			- if category.posts.present?
 				%li.span4
-					.well
-						%h3= category.content.name
-						%ul
-							- category.posts.published.limit(5).each do |post|
-								%li= link_to post.content.name, post
+					.panel.panel-success
+						.panel-heading
+							%h3.panel-title= category.content.name
+						.panel-body
+							%ul
+								- category.posts.published.limit(5).each do |post|
+									%li= link_to post.content.name, post
 					= link_to category, class: 'btn btn-link' do
 						= glyph('map-marker')
 						Все встатьи

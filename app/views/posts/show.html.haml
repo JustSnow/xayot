@@ -1,4 +1,4 @@
-= render_breadcrumbs
+= render_breadcrumbs builder: ::BootstrapBreadcrumbsBuilder
 .well
 	%p.pull-right= raw "#{glyph(:calendar)} #{Russian::strftime @post.content.created_at, '%e %B в %l:%M %p'}"
 	%h3= @post.content.name

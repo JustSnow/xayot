@@ -72,5 +72,7 @@ module Xayot
       Devise::UnlocksController.layout "authorithation"            
       Devise::PasswordsController.layout "authorithation"        
     end
+
+    config.autoload_paths += Dir["#{config.root}/lib/"]
   end
 end
