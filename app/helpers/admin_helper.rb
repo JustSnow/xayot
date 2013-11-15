@@ -13,9 +13,20 @@ module AdminHelper
 
   # формирование навигации для навигационного меню админки
   def nav_link_html hash_params
-    main_link = link_to content_tag(:span, raw(glyph(hash_params[:icon]) + hash_params[:name_link])), hash_params[:all_path]
+    main_link = link_to content_tag(
+      :span, 
+      raw(
+        glyph(hash_params[:icon]) + 
+        hash_params[:name_link])
+      ), 
+      hash_params[:all_path]
+
     main_link.concat(content_tag(:span, "   "))
-    new_link = link_to content_tag(:span, glyph(:pencil), class: 'img-polaroid'), hash_params[:new_path], {title: hash_params[:title_new]}
+    new_link = link_to content_tag(
+      :span, 
+      glyph(:pencil), 
+      class: 'img-polaroid'
+      ), hash_params[:new_path], {title: hash_params[:title_new]}
 
     main_link.concat(new_link)
   end
@@ -95,7 +106,7 @@ module AdminHelper
       Array(message).each do |msg|
         text = content_tag(:div,
                 content_tag(:button, raw("&times;"), class: "close", "data-dismiss" => "alert") +
-                msg.html_safe, :class => "alert fade in alert-#{type}")
+                msg.html_safe, class: "alert fade in alert-#{type}")
         flash_messages << text if msg
       end
     end
@@ -115,6 +126,6 @@ module AdminHelper
     names.map! do |name|
       name =~ /pull-(?:left|right)/ ? name : "icon-#{name}"
     end
-    content_tag :i, nil, :class => names
+    content_tag :i, nil, class: names
   end
 end
