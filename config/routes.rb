@@ -10,6 +10,8 @@ Xayot::Application.routes.draw do
   namespace :admin do
     root to: 'admin#index'
 
+    resources :users, except: [:show]
+
     resources :categories do
       get :manage, on: :collection
       post :rebuild, on: :collection

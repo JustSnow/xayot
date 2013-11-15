@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :contents, dependent: :destroy
+
+  def role
+    self[:role].inquiry
+  end
 end

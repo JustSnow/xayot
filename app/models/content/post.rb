@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
   has_one :content, as: :node, dependent: :destroy
   belongs_to :category
   has_many :gallery_posts, dependent: :destroy
-  has_one :menu
+  has_one :menu, dependent: :destroy
 
   accepts_nested_attributes_for :content
   attr_accessible :content_attributes, :category_id, :intro, :full, :main

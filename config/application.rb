@@ -74,5 +74,6 @@ module Xayot
     end
 
     config.autoload_paths += Dir["#{config.root}/lib/"]
+    config.autoload_paths += Dir["#{config.root}/app/models/**/"]
   end
 end

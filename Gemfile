@@ -14,9 +14,9 @@ end
 gem 'jquery-rails'
 gem "jquery-ui-rails"
 gem 'haml-rails'
-gem "breadcrumbs_on_rails"
 
 gem 'devise', git: 'git://github.com/plataformatec/devise.git'
+gem "cancan"
 gem 'unicode'
 gem 'russian'
 gem 'unicorn', platforms: :ruby
@@ -32,6 +32,7 @@ gem "ckeditor"
 gem 'will_paginate'
 gem "jquery-fileupload-rails", '0.4.0'
 gem "select2-rails"
+gem "breadcrumbs_on_rails"
 
 group :development do
   gem 'quiet_assets'

@@ -48,6 +48,7 @@ GEM
       sass (~> 3.2)
     breadcrumbs_on_rails (2.3.0)
     builder (3.0.4)
+    cancan (1.6.10)
     capistrano (2.15.5)
       highline
       net-scp (>= 1.0.0)
@@ -206,6 +207,7 @@ DEPENDENCIES
   awesome_nested_set
   bootstrap-sass (= 2.3.2.2)
   breadcrumbs_on_rails
+  cancan
   capistrano (= 2.15.5)
   carrierwave
   ckeditor
