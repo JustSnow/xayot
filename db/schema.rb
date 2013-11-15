@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131105120914) do
+ActiveRecord::Schema.define(:version => 20131115122344) do
 
   create_table "categories", :force => true do |t|
     t.integer "parent_id"
@@ -71,10 +71,12 @@ ActiveRecord::Schema.define(:version => 20131105120914) do
     t.integer  "category_id"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
+    t.integer  "user_id"
   end
 
   add_index "menus", ["category_id"], :name => "index_menus_on_category_id"
   add_index "menus", ["post_id"], :name => "index_menus_on_post_id"
+  add_index "menus", ["user_id"], :name => "index_menus_on_user_id"
 
   create_table "posts", :force => true do |t|
     t.integer "category_id"
@@ -99,6 +101,10 @@ ActiveRecord::Schema.define(:version => 20131105120914) do
     t.string   "role",                   :default => "user"
     t.datetime "created_at",                                 :null => false
     t.datetime "updated_at",                                 :null => false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.text     "description"
+    t.text     "contacts"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,0 +1,12 @@
+.control-group
+  = f.label :first_name, 'Имя', {class: 'control-label'}
+  .controls
+    = f.text_field :first_name, placeholder: 'Имя пользователя' 
+.control-group
+  = f.label :last_name, 'Фамилия', {class: 'control-label'}
+  .controls
+    = f.text_field :last_name, placeholder: 'Фамилия пользователя' 
+.control-group
+  = f.label :email, 'Email', {class: 'control-label'}
+  .controls
+    = f.text_field :email, placeholder: 'Email пользователя'

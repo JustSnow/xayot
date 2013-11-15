@@ -6,6 +6,7 @@ class Menu < ActiveRecord::Base
 
   belongs_to :post
   belongs_to :category
+  belongs_to :user
 
   attr_accessible :parent_id, :lft, :rgt, :depth, :name, :published, :post_id, :category_id
 

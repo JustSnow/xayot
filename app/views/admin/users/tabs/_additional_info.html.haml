@@ -1,0 +1,16 @@
+.control-group
+  = label_tag :created_at, 'Зарегистрирован', {class: 'control-label'}
+  .controls
+    %span.label.label-info= Russian::strftime @user.created_at, '%e %B в %l:%M %p' 
+.control-group
+  = label_tag :last_sign_in_at, 'Последний раз заходил', {class: 'control-label'}
+  .controls
+    %span.label.label-info= Russian::strftime @user.last_sign_in_at, '%e %B в %l:%M %p'
+.panel.panel-info.span4
+  .panel-heading
+    %h3.panel-title Активность пользователя
+  .panel-body
+    %ul.nav
+      %li= raw "Постов #{badge(@user.contents.where('node_type = ?', 'Category').size, 'success pull-right')}"
+      %li= raw "Категорий #{badge(@user.contents.where('node_type = ?', 'Post').size, 'success pull-right')}"
+      %li= raw "Меню #{badge(@user.menu.size, 'success pull-right')}"

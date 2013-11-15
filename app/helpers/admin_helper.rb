@@ -128,4 +128,21 @@ module AdminHelper
     end
     content_tag :i, nil, class: names
   end
+
+  # badge(12, :warning)
+  # => <span class="badge badge-warning">12</span>
+  def badge(*args)
+    badge_label(:badge, *args)
+  end
+
+  def tag_label(*args)
+    badge_label(:label, *args)
+  end
+
+  private
+    def badge_label(what, value, type = nil)
+      klass = [what]
+      klass << "#{what}-#{type}" if type.present?
+      content_tag :span, value, :class => "#{klass.join(' ')}"
+    end
 end

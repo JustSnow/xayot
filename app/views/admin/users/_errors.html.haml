@@ -1,0 +1,8 @@
+- if @user.errors.any?
+  #errorExplanation.alert.alert-error
+    %h4
+      = pluralize(@user.errors.count, 'error') 
+      prohibited this user from being saved:
+    %ul
+      - @user.errors.full_messages.each do |e|
+        %li= e

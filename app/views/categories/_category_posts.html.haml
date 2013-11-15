@@ -1,5 +1,5 @@
 .well.category_posts
-	%p.pull-right= raw "#{glyph(:calendar)} #{Russian::strftime post.content.created_at, '%e %B в %l:%M %p'}"
+	%p.pull-right= created_at_info post.content.created_at
 	%h3= link_to post.content.name, post
 	%section
 		%p.pull-left= image_tag post.content.image_url(:thumb), class: 'img-polaroid' if post.content.image?
