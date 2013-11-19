@@ -1,12 +1,14 @@
 .control-group
-  = f.label :first_name, 'Имя', {class: 'control-label'}
-  .controls
-    = f.text_field :first_name, placeholder: 'Имя пользователя' 
+	= f.label :first_name, 'Имя', {class: 'control-label'}
+	.controls= f.text_field :first_name, placeholder: 'Имя пользователя' 
 .control-group
-  = f.label :last_name, 'Фамилия', {class: 'control-label'}
-  .controls
-    = f.text_field :last_name, placeholder: 'Фамилия пользователя' 
+	= f.label :last_name, 'Фамилия', {class: 'control-label'}
+	.controls= f.text_field :last_name, placeholder: 'Фамилия пользователя' 
 .control-group
-  = f.label :email, 'Email', {class: 'control-label'}
-  .controls
-    = f.text_field :email, placeholder: 'Email пользователя'
+	= f.label :email, 'Email', {class: 'control-label'}
+	.controls= f.text_field :email, placeholder: 'Email пользователя'
+- if can? :role_edit, current_user
+	.control-group
+		= f.label :role, 'Роль пользователя', {class: 'control-label'}
+		.controls
+			= f.select :role, options_for_select([['Админ', 'admin'], ['Пользователь', 'user'], ['Контактное лицо', 'contact']], @user.role)

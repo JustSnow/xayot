@@ -1,0 +1,6 @@
+%tr
+	%td= user.id
+	%td= (can?(:edit, current_user))? link_to("#{user.first_name} #{user.last_name}", [:edit, :admin, user]) : "#{user.first_name} #{user.last_name}"
+	%td= user.email
+	%td= user.role
+	%td= delete_link({delete_link: admin_user_path(user), message: "Уверены что хотите удалить пользователя '#{user.first_name} #{user.last_name}'"}) if can? :delete, current_user

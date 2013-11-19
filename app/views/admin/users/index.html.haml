@@ -1,0 +1,13 @@
+.btn-toolbar
+  .btn-group.pull-right= button_new_item({link_new: new_admin_user_path, text_new: 'Новый пользователь'}) if can? :create, current_user
+%h3 Пользователи
+= will_paginate(@users, next_label: '>', previous_label: '<', class: 'pagination pagination-mini')
+%table.table.table-bordered.table-striped
+  %tr
+    %th #
+    %th Ф.И.О.
+    %th Email
+    %th Роль
+    %th
+  = render @users
+= will_paginate(@users, next_label: '>', previous_label: '<', class: 'pagination pagination-mini')

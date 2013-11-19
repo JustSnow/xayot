@@ -5,7 +5,7 @@
       = f.submit 'Сохранить', :class => 'btn btn-primary'
       = f.button 'Отмена', :class => 'btn', :type => 'reset'
     .btn-group.pull-right
-      = gallery_btn({link_gallery: admin_post_gallery_posts_path(@post), text_gallery: 'Галлерея'}) unless @post.id.nil?
+      = gallery_btn({link_gallery: admin_post_gallery_posts_path(@post), text_gallery: 'Галлерея'}) unless @post.new_record?
       = button_item({link_new: new_admin_post_path, text_new: 'Новый пост', link_all: admin_posts_path, text_all: 'Все посты'})
   .tabbable
     %ul.nav.nav-tabs.clickTabs{data: {tabs: 'tabs'}}

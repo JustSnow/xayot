@@ -4,11 +4,12 @@
     .btn-group
       = f.submit 'Сохранить', class: 'btn btn-primary'
       = f.button 'Отмена', class: 'btn', type: 'reset'
+    .btn-group.pull-right
+      = button_item({link_new: [:new, :admin, :user], text_new: 'Новый пользователь', link_all: [:admin, :users], text_all: 'Все пользователи'})
   .tabbable
     %ul.nav.nav-tabs.clickTabs{data: {tabs: 'tabs'}}
       = render 'admin/users/tabs/menu'
   .tab-content
     .tab-pane.active#main_info
       = render 'admin/users/tabs/main_info', f: f
-    .tab-pane#additional_info
-      = render 'admin/users/tabs/additional_info'
+    .tab-pane#additional_info= render 'admin/users/tabs/additional_info' unless @user.new_record?

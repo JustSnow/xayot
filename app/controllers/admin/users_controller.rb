@@ -2,9 +2,11 @@ class Admin::UsersController < Admin::AdminController
   before_filter :find_user, only: [:edit, :update]
 
   def index
+    @users = User.all.paginate(page: params[:page], per_page: 15)
   end
 
   def new
+    @user = User.new
   end
 
   def edit
