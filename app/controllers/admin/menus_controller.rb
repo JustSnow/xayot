@@ -20,11 +20,11 @@ class Admin::MenusController < Admin::AdminController
   end
 
 	def new
-		@menu = current_user.menu.nested_set.build
+		@menu = current_user.menu.build
 	end
 
 	def create
-		@menu = current_user.menu.nested_set.build(params[:menu])
+		@menu = current_user.menu.build(params[:menu])
 
 		if @menu.save
 			flash[:notice] = "Меню - #{@menu.name} успешно создано"

@@ -14,12 +14,12 @@ class Admin::CategoriesController < Admin::AdminController
   end
 
   def new
-    @category = Category.nested_set.new
+    @category = Category.new
     @content = @category.build_content
   end
 
   def create
-    @category = Category.nested_set.new(params[:category])
+    @category = Category.new(params[:category])
       
     if @category.save
       current_user.contents << @category.content
@@ -78,7 +78,7 @@ class Admin::CategoriesController < Admin::AdminController
     end
 
     def find_cat
-      @category = Category.nested_set.find(params[:id])
+      @category = Category.find(params[:id])
     end
 
     def seo_category_params
