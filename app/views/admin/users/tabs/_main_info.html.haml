@@ -7,8 +7,17 @@
 .control-group
 	= f.label :email, 'Email', {class: 'control-label'}
 	.controls= f.text_field :email, placeholder: 'Email пользователя'
+
 - if can? :role_edit, current_user
 	.control-group
 		= f.label :role, 'Роль пользователя', {class: 'control-label'}
 		.controls
 			= f.select :role, options_for_select([['Админ', 'admin'], ['Пользователь', 'user'], ['Контактное лицо', 'contact']], @user.role)
+
+/ .control-group
+/ 	=# f.label :password, 'Новый пароль', {class: 'control-label'}
+/ 	.controls
+/ 		=# f.password_field :password
+/ .control-group
+/ 	=# f.label :password_confirmation, 'Подтверждение пароля', {class: 'control-label'}
+/ 	.controls=# f.password_field :password_confirmation

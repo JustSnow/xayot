@@ -1,2 +1,3 @@
 %li.active= link_to 'Общая информация', '#main_info', {data: {toogle: 'tab'}}
 %li= link_to 'Дополнительная информация', '#additional_info', {data: {toogle: 'tab'}} unless @user.new_record?
+%li= link_to 'Контакты', '#contacts', {data: {toogle: 'tab'}}

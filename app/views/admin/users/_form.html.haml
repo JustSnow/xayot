@@ -10,6 +10,6 @@
     %ul.nav.nav-tabs.clickTabs{data: {tabs: 'tabs'}}
       = render 'admin/users/tabs/menu'
   .tab-content
-    .tab-pane.active#main_info
-      = render 'admin/users/tabs/main_info', f: f
+    .tab-pane.active#main_info= render 'admin/users/tabs/main_info', f: f
     .tab-pane#additional_info= render 'admin/users/tabs/additional_info' unless @user.new_record?
+    .tab-pane#contacts= render 'admin/users/tabs/contacts', f: f

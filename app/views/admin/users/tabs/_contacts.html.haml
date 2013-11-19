@@ -1,0 +1,8 @@
+.control-group
+  = f.label :description, 'Описание пользователя', {class: 'control-label'}
+  .controls
+    = f.cktext_area :description
+.control-group
+  = f.label :contacts, 'Контактная информация', {class: 'control-label'}
+  .controls
+    = f.cktext_area :contacts
