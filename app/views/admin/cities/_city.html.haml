@@ -1,0 +1,6 @@
+%tr
+	%td= city.id
+	%td= city.country
+	%td= (can?(:edit, current_user))? link_to(city.name, [:edit, :admin, city]) : city.name
+	%td= "ул. #{city.street}, #{city.home} #{city.apartment}"
+	%td= delete_link({delete_link: admin_city_path(city), message: "Уверены что хотите удалить город '#{city.name}'"}) if can? :delete, current_user

@@ -2,7 +2,7 @@ class Admin::UsersController < Admin::AdminController
   before_filter :find_user, only: [:edit, :update, :destroy]
 
   def index
-    @users = User.all.paginate(page: params[:page], per_page: 15)
+    @users = User.order_desc.paginate(page: params[:page], per_page: 15)
   end
 
   def new
@@ -14,9 +14,6 @@ class Admin::UsersController < Admin::AdminController
 
   def create
     @user = User.new params[:user]
-    password = Time.now.to_time
-    @user.password = password
-    @user.password_confirmation = password
 
     if @user.save
       flash[:notice] = "Пользователь '#{@user.first_name} #{@user.last_name}' успешно сохранен"
@@ -28,7 +25,6 @@ class Admin::UsersController < Admin::AdminController
   end
 
   def update
-    # params[:user].delete([:password, :password_confirmation]) if params[:user][:password].blank?
     if @user.update_attributes(params[:user])
       flash[:notice] = "Пользователь #{@user.email} успешно обновлен"
       redirect_to [:edit, :admin, @user]

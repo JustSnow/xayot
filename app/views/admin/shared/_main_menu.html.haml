@@ -13,6 +13,7 @@
           %li= link_to 'Посты', admin_posts_path
           %li= link_to 'Меню', admin_menus_path if can? :read, current_user
           %li= link_to 'Пользователи', admin_users_path if can? :read, current_user
+          %li= link_to 'Города', admin_cities_path if can? :read, current_user
 
         %ul.nav.pull-right
           %li

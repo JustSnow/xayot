@@ -1,0 +1,8 @@
+- if @city.errors.any?
+  #errorExplanation.alert.alert-error
+    %h4
+      = pluralize(@city.errors.count, 'error') 
+      prohibited this city from being saved:
+    %ul
+      - @city.errors.full_messages.each do |e|
+        %li= e

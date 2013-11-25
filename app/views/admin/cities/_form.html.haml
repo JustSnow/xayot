@@ -1,0 +1,13 @@
+= form_for [:admin, @city], html: {class: 'form-horizontal'} do |f|
+  = render 'errors'
+  .btn-toolbar
+    .btn-group
+      = f.submit 'Сохранить', class: 'btn btn-primary'
+      = f.button 'Отмена', class: 'btn', type: 'reset'
+    .btn-group.pull-right
+      = button_item({link_new: [:new, :admin, :city], text_new: 'Новый город', link_all: [:admin, :cities], text_all: 'Все города'})
+  .tabbable
+    %ul.nav.nav-tabs.clickTabs{data: {tabs: 'tabs'}}
+      = render 'admin/cities/tabs/menu'
+  .tab-content
+    .tab-pane.active#main_info= render 'admin/cities/tabs/main_info', f: f

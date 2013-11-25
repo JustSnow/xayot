@@ -11,6 +11,7 @@ Xayot::Application.routes.draw do
     root to: 'admin#index'
 
     resources :users, except: [:show]
+    resources :cities, except: [:show]
 
     resources :categories do
       get :manage, on: :collection

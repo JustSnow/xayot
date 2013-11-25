@@ -1,0 +1,15 @@
+.control-group
+	= f.label :country, 'Страна', {class: 'control-label'}
+	.controls= f.text_field :country, placeholder: 'Страна' 
+.control-group
+	= f.label :name, 'Название', {class: 'control-label'}
+	.controls= f.text_field :name, placeholder: 'Название города' 
+.control-group
+	= f.label :street, 'Улица', {class: 'control-label'}
+	.controls= f.text_field :street, placeholder: 'Улица'
+.control-group
+	= f.label :home, 'Дом, корпус', {class: 'control-label'}
+	.controls= f.text_field :home, placeholder: 'Дом, корпус'
+.control-group
+	= f.label :apartment, 'Номер квартиры', {class: 'control-label'}
+	.controls= f.text_field :apartment, placeholder: 'Цифра, номер квартиры'

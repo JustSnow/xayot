@@ -14,10 +14,11 @@
 		.controls
 			= f.select :role, options_for_select([['Админ', 'admin'], ['Пользователь', 'user'], ['Контактное лицо', 'contact']], @user.role)
 
-/ .control-group
-/ 	=# f.label :password, 'Новый пароль', {class: 'control-label'}
-/ 	.controls
-/ 		=# f.password_field :password
-/ .control-group
-/ 	=# f.label :password_confirmation, 'Подтверждение пароля', {class: 'control-label'}
-/ 	.controls=# f.password_field :password_confirmation
+- if @user.new_record?
+	.control-group
+		= f.label :password, 'Пароль', {class: 'control-label'}
+		.controls
+			= f.password_field :password
+	.control-group
+		= f.label :password_confirmation, 'Подтверждение пароля', {class: 'control-label'}
+		.controls= f.password_field :password_confirmation

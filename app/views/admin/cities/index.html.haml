@@ -1,0 +1,13 @@
+.btn-toolbar
+  .btn-group.pull-right= button_new_item({link_new: [:new, :admin, :city], text_new: 'Новый город'}) if can? :create, current_user
+%h3 Пользователи
+= will_paginate(@cities, next_label: '>', previous_label: '<', class: 'pagination pagination-mini')
+%table.table.table-bordered.table-striped
+  %tr
+    %th #
+    %th Старана
+    %th Название
+    %th Адрес
+    %th
+  = render @cities
+= will_paginate(@cities, next_label: '>', previous_label: '<', class: 'pagination pagination-mini')
