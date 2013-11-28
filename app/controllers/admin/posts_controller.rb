@@ -3,7 +3,7 @@ class Admin::PostsController < Admin::AdminController
   before_filter :seo_post_params, only: [:update, :create]
 
   def index
-    @posts = Post.includes(:content).paginate(page: params[:page], per_page: 15)
+    @posts = Post.order_desc.includes(:content).paginate(page: params[:page], per_page: 15)
   end
 
   def new
@@ -25,11 +25,12 @@ class Admin::PostsController < Admin::AdminController
 
   def update
     if @post.update_attributes(params[:post])
-      flash[:notice] = "Информация о посте '#{@post.content.name}' успешно обновлена"
-      redirect_to [:edit, :admin, @post] 
+      flash[:notice] = "Информация о посте '#{@post.content.name}' успешно обновлена" 
     else
-      render 'edit'
+      flash[:alert] = 'Опс, что то пошло не так'
     end
+
+    redirect_to [:edit, :admin, @post]
   end
 
   def edit
@@ -39,12 +40,12 @@ class Admin::PostsController < Admin::AdminController
     @post.content.published = true
 
     if @post.save
-      flash[:notice] = "Пост ##{@post.id} успешно опубликован"
-      redirect_to admin_posts_path 
+      flash[:notice] = "Пост ##{@post.id} успешно опубликован" 
     else
       flash[:alert] = 'Опс, что то пошло не так'
-      redirect_to [:edit, :admin, @post]
     end
+    
+    redirect_to [:edit, :admin, @post]
   end
 
   def unpublish
@@ -52,11 +53,11 @@ class Admin::PostsController < Admin::AdminController
     
     if @post.save
       flash[:notice] = "Пост ##{@post.id} успешно снят с публикации"
-      redirect_to admin_posts_path
     else
       flash[:alert] = 'Опс, что то пошло не так'
-      redirect_to [:edit, :admin, @post]
     end
+    
+    redirect_to [:edit, :admin, @post]
   end
 
   def destroy

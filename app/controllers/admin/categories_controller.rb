@@ -33,10 +33,11 @@ class Admin::CategoriesController < Admin::AdminController
   def update
     if @category.update_attributes(params[:category])
       flash[:notice] = "Информация о категории #{@category.content.name} успешно обновлена"
-      redirect_to [:edit, :admin, @category]
     else
-      render 'edit'
+      flash[:alert] = 'Ошибка обновления'
     end
+
+    redirect_to [:edit, :admin, @category]
   end
 
   def edit

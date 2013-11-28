@@ -33,6 +33,7 @@ gem 'will_paginate'
 gem "jquery-fileupload-rails", '0.4.0'
 gem "select2-rails"
 gem "breadcrumbs_on_rails"
+gem 'acts_as_unvlogable', github: 'mamuso/acts_as_unvlogable'
 
 group :development do
   gem 'quiet_assets'

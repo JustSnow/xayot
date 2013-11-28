@@ -12,6 +12,14 @@ Xayot::Application.routes.draw do
 
     resources :users, except: [:show]
     resources :cities, except: [:show]
+    
+    resources :actions, except: [:show] do
+      get :manage, on: :collection
+      post :rebuild, on: :collection
+
+      get 'publish', on: :member
+      get 'unpublish', on: :member
+    end
 
     resources :categories do
       get :manage, on: :collection

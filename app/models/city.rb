@@ -4,6 +4,7 @@ class City < ActiveRecord::Base
 	attr_accessible :country, :name, :street, :home, :apartment
 
 	has_many :users
+	has_many :actions, dependent: :destroy
 
 	validates_presence_of :name
 end

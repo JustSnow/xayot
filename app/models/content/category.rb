@@ -9,5 +9,5 @@ class Category < ActiveRecord::Base
   has_one :menu, dependent: :destroy
 
   accepts_nested_attributes_for :content
-  attr_accessible :content_attributes, :parent_id, :lft, :rgt, :depth
+  attr_accessible :content_attributes, :parent_id
 end
