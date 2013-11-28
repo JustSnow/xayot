@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :contents, dependent: :destroy
   has_many :menu, dependent: :destroy
   belongs_to :city
+  has_many :actions, dependent: :destroy
 
   def role
     self[:role].inquiry
