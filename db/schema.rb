@@ -11,7 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131125105240) do
+ActiveRecord::Schema.define(:version => 20131201163152) do
+
+  create_table "actions", :force => true do |t|
+    t.string   "name"
+    t.string   "alias"
+    t.text     "intro"
+    t.text     "full"
+    t.text     "seo"
+    t.string   "image"
+    t.boolean  "published",   :default => true
+    t.integer  "price"
+    t.integer  "user_id"
+    t.integer  "city_id"
+    t.integer  "category_id"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "actions", ["category_id"], :name => "index_actions_on_category_id"
+  add_index "actions", ["city_id"], :name => "index_actions_on_city_id"
+  add_index "actions", ["user_id"], :name => "index_actions_on_user_id"
 
   create_table "categories", :force => true do |t|
     t.integer "parent_id"
@@ -93,9 +113,17 @@ ActiveRecord::Schema.define(:version => 20131125105240) do
     t.text    "intro"
     t.text    "full"
     t.boolean "main"
+    t.string  "video"
+    t.integer "city_id"
+    t.integer "parent_id"
+    t.integer "lft"
+    t.integer "rgt"
+    t.integer "depth"
+    t.string  "post_type",   :default => "post"
   end
 
   add_index "posts", ["category_id"], :name => "index_posts_on_category_id"
+  add_index "posts", ["city_id"], :name => "index_posts_on_city_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",     :null => false

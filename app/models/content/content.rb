@@ -8,18 +8,21 @@ class Content < ActiveRecord::Base
   
   validates_presence_of :name
   
-  before_validation :set_alias
+  before_validation :set_alias, if: -> { self.alias.blank? }
 
   mount_uploader :image, ImageUploader
 
-  def set_alias
-    if self.alias.blank?
-      if self.name?
-        translite_alias = Russian.translit(self.name)
-        self.alias = translite_alias.gsub(' ','-').gsub(/[^\x00-\x7F]+/, '').gsub(/[^\w_ \-]+/i,'').gsub(/[ \-]+/i,'-').gsub(/^\-|\-$/i,'').downcase
-      end
-    else
-      self.alias = self.alias.gsub(' ','-').gsub(/[^\x00-\x7F]+/, '').gsub(/[^\w_ \-]+/i,'').gsub(/[ \-]+/i,'-').gsub(/^\-|\-$/i,'').downcase
+  private
+    def set_alias
+      self.alias = filter_gsub Russian.translit(self.name)
     end
-  end
+
+    def filter_gsub str
+      str_g = str.gsub(' ','-')
+              .gsub(/[^\w_ \-]+/i,'')
+              .gsub(/[ \-]+/i,'-')
+              .gsub(/^\-|\-$/i,'')
+              .downcase
+      str_g
+    end
 end
